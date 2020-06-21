@@ -28,6 +28,7 @@ return [
     'Financial reports' => 'التقارير المالية',
     'Backup' => 'النسخ الاحتياطي',
     'Main Ui'=>'الواجهة الامامية',
+    'Pages' =>  'الصفحات',
     // settings trans
 
     'is_site_active' => 'حالة الموقع',

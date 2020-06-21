@@ -26,7 +26,7 @@ return [
     'Financial reports' => 'Financial reports',
     'Backup' => 'Backup',
     'Main Ui'=>'Main Ui',
-
+    'Pages' =>  'Pages',
     // settings trans
 
     'is_site_active' => 'Site Status',
