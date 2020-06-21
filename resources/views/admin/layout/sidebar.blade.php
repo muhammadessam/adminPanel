@@ -1,13 +1,13 @@
 <!-- Sidebar -->
-<div class="sidebar" style="direction: ltr">
-    <div style="direction: rtl">
+<div class="sidebar">
+    <div>
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="{{asset('admin/dist/img/user1-128x128.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">كوكب التقنية</a>
+                <a href="#" class="d-block">{{__('adminPanel.Const Tech')}}</a>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fa fa-dashboard"></i>
                         <p>
-                            الرئيسية
+                            {{__('adminPanel.Main')}}
                             <i class="right fa fa-angle-left"></i>
                         </p>
                     </a>
@@ -28,22 +28,17 @@
                         <li class="nav-item">
                             <a href="{{route('admin.home')}}" class="nav-link active">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>الاحصائيات</p>
+                                <p></p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>الواجهة</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <i class="nav-icon fa fa-spin fa-cog"></i>
                         <p>
-                            الاعدادات العامة
+                            {{__('adminPanel.Settings')}}
                         </p>
                     </a>
                 </li>
@@ -51,7 +46,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-bell"></i>
                         <p>
-                            الاشعارات
+                            {{__('adminPanel.Notifications')}}
                             <i class="right fa fa-angle-left"></i>
                         </p>
                     </a>
@@ -59,25 +54,7 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>انتهاء وتجديد الاشتراك</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة فروع</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/inline.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة موظفين</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/inline.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة فواتير ومصروفات</p>
+                                <p></p>
                             </a>
                         </li>
 
@@ -87,7 +64,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            التحكم بالمشرفين
+                            {{__('adminPanel.Admins Management')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -95,7 +72,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -105,7 +82,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-tree"></i>
                         <p>
-                            الفروع
+                            {{__('adminPanel.Branches')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -113,7 +90,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -123,7 +100,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-resistance"></i>
                         <p>
-                            الموارد البشرية
+                            {{__('adminPanel.Human resources')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -131,7 +108,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -141,7 +118,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            التحكم بالموظفين
+                            {{__('adminPanel.Employee Management')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -149,7 +126,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -160,7 +137,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>
                         <p>
-                            الفواتير
+                            {{__('adminPanel.Invoices')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -168,7 +145,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -178,7 +155,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>
                         <p>
-                            المصروفات
+                            {{__('adminPanel.Expenses')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -186,7 +163,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -196,7 +173,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
-                            المخزن
+                            {{__('adminPanel.Store')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -204,7 +181,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -214,7 +191,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>
                         <p>
-                            التقارير المالية
+                            {{__('adminPanel.Financial reports')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -222,7 +199,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>
@@ -231,7 +208,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-hdd-o"></i>
                         <p>
-                            النسخ الاحتياطي
+                            {{__('adminPanel.Backup')}}
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
@@ -239,7 +216,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>اضافة </p>
+                                <p> </p>
                             </a>
                         </li>
                     </ul>

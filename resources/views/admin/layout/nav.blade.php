@@ -1,13 +1,26 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
 
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+    </ul>
+
+
     <!-- Right navbar links -->
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav {{session('locale')=='ar' ? 'mr-auto' : 'ml-auto'}}">
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="{{session('locale')=='ar' ? route('admin.changeLang', 'en') : route('admin.changeLang', 'ar')}}">
+                <i class="fa fa-language"></i>
+                <span class="badge badge-info navbar-badge">{{session('locale')=='ar' ? 'en' : 'ar'}}</span>
+            </a>
+        </li>
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell-o"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
+                <i class="fa fa-user-secret"></i>
+                {{--                <span class="badge badge-danger navbar-badge">3</span>--}}
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
                 <a href="#" class="dropdown-item">

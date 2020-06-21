@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('lang/{locale}', 'LocalizationController@index')->name('changeLang');
 Route::prefix('admin')->group(function () {
 
     Route::namespace('Auth')->middleware('guest:admin')->group(function () {
