@@ -19,7 +19,7 @@ class Localization
         if (session()->has('locale')) {
             App::setLocale(session()->get('locale'));
         } else {
-            session()->setLocale('ar');
+            session()->put('locale', 'ar');
             App::setLocale('ar');
         }
         return $next($request);
