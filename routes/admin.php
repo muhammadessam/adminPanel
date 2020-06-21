@@ -26,5 +26,8 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('home', 'HomeController@index')->name('home');
+
+        Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
+
     });
 });

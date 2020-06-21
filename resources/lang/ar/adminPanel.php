@@ -11,18 +11,24 @@
 
 return [
     'Admin Panel' => 'لوحة التحكم',
-    'Const Tech'=>'كوكب التقنية',
+    'Const Tech' => 'كوكب التقنية',
     'Copy rights' => 'حقوق الملكية محفوظة ل ',
-    'Main'=>'الرئيسية',
-    'Settings'=>'الاعدادات',
-    'Notifications'=>'الاشعارات',
-    'Admins Management'=>'التحكم بالمشرفين',
-    'Branches'=>'الفروع',
-    'Human resources'=>'الموارد البشرية',
-    'Employee Management'=>'التحكم بالموظفين',
-    'Invoices'=>'الفواتير',
-    'Expenses'=>'المصروفات',
-    'Store'=>'المخزن',
-    'Financial reports'=>'التقارير المالية',
-    'Backup'=>'النسخ الاحتياطي',
+    'Main' => 'الرئيسية',
+    'Settings' => 'الاعدادات',
+    'Notifications' => 'الاشعارات',
+    'Admins Management' => 'التحكم بالمشرفين',
+    'Branches' => 'الفروع',
+    'Human resources' => 'الموارد البشرية',
+    'Employee Management' => 'التحكم بالموظفين',
+    'Invoices' => 'الفواتير',
+    'Expenses' => 'المصروفات',
+    'Store' => 'المخزن',
+    'Financial reports' => 'التقارير المالية',
+    'Backup' => 'النسخ الاحتياطي',
+
+    // settings trans
+
+    'is_site_active' => 'حالة الموقع',
+    'is_program_active' => 'حالة البرنامج',
+
 ];

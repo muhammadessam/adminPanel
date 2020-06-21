@@ -17,7 +17,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-dashboard"></i>
                         <p>
                             {{__('adminPanel.Main')}}
@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('admin.settings.index')}}" class="nav-link {{request()->routeIs('admin.settings.index') ?'active' : ''}}">
                         <i class="nav-icon fa fa-spin fa-cog"></i>
                         <p>
                             {{__('adminPanel.Settings')}}
@@ -72,7 +72,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -90,7 +90,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -108,7 +108,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -126,7 +126,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -145,7 +145,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -163,7 +163,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -181,7 +181,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -199,7 +199,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>
@@ -216,7 +216,7 @@
                         <li class="nav-item">
                             <a href="pages/UI/general.html" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
                     </ul>

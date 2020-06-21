@@ -25,4 +25,10 @@ return [
     'Store' => 'Store',
     'Financial reports' => 'Financial reports',
     'Backup' => 'Backup',
+
+    // settings trans
+
+    'is_site_active' => 'Site Status',
+    'is_program_active' => 'Program Status',
+
 ];
