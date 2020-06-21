@@ -11,6 +11,7 @@ class LoginController extends Controller
 {
 
     use ThrottlesLogins;
+
     public $maxAttempts = 5;
     public $decayMinutes = 3;
 
@@ -31,7 +32,7 @@ class LoginController extends Controller
         $this->validator($request);
 
         //check if the user has too many login attempts.
-        if ($this->hasTooManyLoginAttempts($request)){
+        if ($this->hasTooManyLoginAttempts($request)) {
             //Fire the lockout event.
             $this->fireLockoutEvent($request);
 
@@ -40,11 +41,11 @@ class LoginController extends Controller
         }
 
         //attempt login.
-        if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
+        if (Auth::guard('admin')->attempt($request->only('email', 'password'), $request->filled('remember'))) {
             //Authenticated
             return redirect()
                 ->intended(route('admin.home'))
-                ->with('status','You are Logged in as Admin!');
+                ->with('status', 'You are Logged in as Admin!');
         }
 
         //keep track of login attempts from the user.
@@ -54,9 +55,10 @@ class LoginController extends Controller
         return $this->loginFailed();
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
+
         return redirect()
             ->route('admin.login')
             ->with('status', 'Admin has been logged out!');
