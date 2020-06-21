@@ -40,10 +40,10 @@
 <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="{{asset('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <a href="{{route('admin.home')}}" class="brand-link">
+            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">پنل مدیریت</span>
+            <span class="brand-text font-weight-light">لوحة التحكم</span>
         </a>
 
         @include('admin.layout.sidebar')
@@ -121,8 +121,8 @@
 <script src="{{asset('admin/plugins/fastclick/fastclick.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
+{{--<!-- AdminLTE dashboard demo (This is only for demo purposes) -->--}}
+{{--<script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>--}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 </body>
