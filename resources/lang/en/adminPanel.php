@@ -25,7 +25,7 @@ return [
     'Store' => 'Store',
     'Financial reports' => 'Financial reports',
     'Backup' => 'Backup',
-
+    'Pages' =>  'Pages',
     // settings trans
 
     'is_site_active' => 'Site Status',

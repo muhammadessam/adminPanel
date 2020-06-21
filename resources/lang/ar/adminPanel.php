@@ -25,7 +25,7 @@ return [
     'Store' => 'المخزن',
     'Financial reports' => 'التقارير المالية',
     'Backup' => 'النسخ الاحتياطي',
-
+    'Pages' =>  'الصفحات',
     // settings trans
 
     'is_site_active' => 'حالة الموقع',
