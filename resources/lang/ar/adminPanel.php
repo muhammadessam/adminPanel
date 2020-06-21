@@ -30,5 +30,7 @@ return [
 
     'is_site_active' => 'حالة الموقع',
     'is_program_active' => 'حالة البرنامج',
+    'closing_message' => 'رسالة اغلاق الموقع',
+    'program_end_date' => 'تاريخ انتهاء البرنامج ',
 
 ];

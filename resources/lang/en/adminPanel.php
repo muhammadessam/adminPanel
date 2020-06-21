@@ -30,5 +30,6 @@ return [
 
     'is_site_active' => 'Site Status',
     'is_program_active' => 'Program Status',
-
+    'closing_message' => 'Site closing message',
+    'program_end_date'=>'Program end Date',
 ];
