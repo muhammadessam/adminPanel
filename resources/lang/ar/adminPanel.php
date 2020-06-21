@@ -10,6 +10,8 @@
 */
 
 return [
+
+    //sidebar tans
     'Admin Panel' => 'لوحة التحكم',
     'Const Tech' => 'كوكب التقنية',
     'Copy rights' => 'حقوق الملكية محفوظة ل ',
@@ -25,7 +27,7 @@ return [
     'Store' => 'المخزن',
     'Financial reports' => 'التقارير المالية',
     'Backup' => 'النسخ الاحتياطي',
-
+    'Main Ui'=>'الواجهة الامامية',
     // settings trans
 
     'is_site_active' => 'حالة الموقع',

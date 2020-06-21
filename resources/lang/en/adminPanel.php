@@ -25,6 +25,7 @@ return [
     'Store' => 'Store',
     'Financial reports' => 'Financial reports',
     'Backup' => 'Backup',
+    'Main Ui'=>'Main Ui',
 
     // settings trans
 
