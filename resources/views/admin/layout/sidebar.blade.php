@@ -16,7 +16,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
+                <li class="nav-item has-treeview {{request()->routeIs('admin.settings.index') ?'menu-open' : ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-dashboard"></i>
                         <p>
@@ -139,7 +139,7 @@
                 </li>
 
 
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview {{request()->routeIs('admin.bills.index') ? 'menu-open' : ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>
                         <p>
@@ -149,9 +149,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="{{route('admin.bills.index')}}" class="nav-link {{request()->routeIs('admin.bills.index') ? 'active' : ''}}">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
+                                <p>{{__("All")}}</p>
                             </a>
                         </li>
                     </ul>

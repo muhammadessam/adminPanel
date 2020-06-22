@@ -30,5 +30,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
         Route::resource('brenchs','BrenchController');
         Route::resource('employees','EmployeeController');
+
+        Route::resource('bills', 'BillController');
     });
 });

@@ -5,6 +5,14 @@
   "Updated successfully": "تم التحديث بنجاح",
   "Saved successfully": "تم الحفظ بنجاح",
   "Service Unavailable": "الموقع مغلق",
+  "Deleted successfully": "تم الحذف بنجاح",
   "Arabic": "العربية",
-  "English": "الانجليزية"
+  "English": "الانجليزية",
+  "All": "الكل",
+  "Phone" : "الهاتف",
+  "Address" : "العنوان",
+  "Actions": "اجراءت",
+  "Action": "اجراء",
+  "Add new" : "اضافة جديد",
+  "Are you sure ?": "هل انت متاكد ؟"
 }
