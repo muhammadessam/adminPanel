@@ -10,6 +10,8 @@
  */
 
 return [
+
+    // sidebar
     'Admin Panel' => 'Admin Panel',
     'Const Tech' => 'Const Tech',
     'Copy rights' => 'Copy rights reserved to',
@@ -20,7 +22,7 @@ return [
     'Branches' => 'Branches',
     'Human resources' => 'Human resources',
     'Employee Management' => 'Employee Management',
-    'Invoices' => 'Invoices',
+    'Invoices' => 'Bills',
     'Expenses' => 'Expenses',
     'Store' => 'Store',
     'Financial reports' => 'Financial reports',

@@ -36,5 +36,6 @@ Route::prefix('admin')->group(function () {
         Route::post('byBrench','EmployeeController@byBrench')->name('brench_emps');
         Route::get('stoning/{employee}','EmployeeController@stoning')->name('stoning');
         Route::get('activating/{employee}','EmployeeController@activating')->name('activating');
+        Route::resource('bills', 'BillController');
     });
 });

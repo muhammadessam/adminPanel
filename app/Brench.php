@@ -18,7 +18,14 @@ class Brench extends Model
         'long',
         'lat',
     ];
-    public function employees(){
-        return $this->hasMany(Employee::class ,'brench_id','id');
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class, 'brench_id', 'id');
+    }
+
+    public function bills()
+    {
+        return $this->hasMany(Bill::class, 'branch_id', 'id');
     }
 }
