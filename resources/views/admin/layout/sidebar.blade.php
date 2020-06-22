@@ -103,42 +103,13 @@
                 </li>
 
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.human_r')}}" class="nav-link">
                         <i class="nav-icon fa fa-resistance"></i>
                         <p>
                             {{__('adminPanel.Human resources')}}
-                            <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                            {{__('adminPanel.Employee Management')}}
-                            <i class="fa fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>

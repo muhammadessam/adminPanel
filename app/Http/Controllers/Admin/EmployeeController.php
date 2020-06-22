@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Brench;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,6 +20,22 @@ class EmployeeController extends Controller
     {
         $emps = Employee::all();
         return view('admin.employees.index',compact('emps'));
+    }
+    public function stoned()
+    {
+        $emps = Employee::all()->where('status','stoned');
+        return view('admin.employees.index',compact('emps'));
+    }
+    public function active()
+    {
+        $emps = Employee::all()->where('status','active');
+        return view('admin.employees.index',compact('emps'));
+    }
+    public function byBrench(Request $request)
+    {
+        $brench = Brench::find($request->get('brench_id'));
+        $emps = $brench->employees;
+        return view('admin.employees.index',compact('emps','brench'));
     }
 
     /**
@@ -51,7 +68,6 @@ class EmployeeController extends Controller
             'bank_account' =>'required',
             'sex' =>'required',
             'salary' =>'required',
-            'status' =>'required',
             'brench_id' =>'required',
         ]);
         if ($request->hasFile('image')){
@@ -128,5 +144,17 @@ class EmployeeController extends Controller
     {
         $employee->delete();
         return Redirect::route('admin.employees.index');
+    }
+    public function stoning(Employee $employee)
+    {
+        $employee->status = "stoned";
+        $employee->save();
+        return Redirect::back();
+    }
+    public function activating(Employee $employee)
+    {
+        $employee->status = "active";
+        $employee->save();
+        return Redirect::back();
     }
 }

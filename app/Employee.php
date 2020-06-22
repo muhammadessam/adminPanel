@@ -21,4 +21,7 @@ class Employee extends Model
         'status',
         'brench_id',
     ];
+    public function brench(){
+        return $this->belongsTo(Brench::class,'brench_id','id');
+    }
 }
