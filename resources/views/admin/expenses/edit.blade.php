@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('adminPanel.Invoices')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('adminPanel.Expenses')}}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -14,24 +14,25 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="card-title">{{__('Add new')}}</h4>
+                    <h4 class="card-title">{{__('Edit')}}</h4>
                     <div class="card-tools">
-                        <a class="btn btn-success" href="{{route('admin.bills.index')}}"><i class="fa fa-list"></i></a>
+                        <a class="btn btn-success" href="{{route('admin.expenses.index')}}"><i class="fa fa-list"></i></a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.bills.store')}}" method="post">
+                    <form action="{{route('admin.expenses.update', $expense)}}" method="post">
                         @csrf
+                        @method('PATCH')
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="branch_id">{{__('bills.branch_name')}}</label>
-                                    <select class="form-control" name="branch_id" id="branch_id">
-                                        @foreach(\App\Brench::all() as $item)
-                                            <option {{$item->id==$bill['branch_id'] ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
+                                    <label for="cat_id">{{__('expenses.main_cat')}}</label>
+                                    <select class="form-control" name="cat_id" id="cat_id">
+                                        @foreach(\App\ExpensesCategory::all()->filter(function ($value){if (!$value['cat_id']) return $value;}) as $item)
+                                            <option {{$item->id==$expense['cat_id'] ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
                                         @endforeach
                                     </select>
-                                    <x-error name="branch_id"></x-error>
+                                    <x-error name="cat_id"></x-error>
                                 </div>
                             </div>
                         </div>
@@ -39,9 +40,13 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="phone">{{__('Phone')}}</label>
-                                    <input class="form-control" type="tel" name="phone" id="phone" value="{{$bill['phone']}}">
-                                    <x-error name="phone"></x-error>
+                                    <label for="sub_cat_id">{{__('expenses.sub_cat')}}</label>
+                                    <select class="form-control" name="sub_cat_id" id="sub_cat_id">
+                                        @foreach(\App\ExpensesCategory::all()->filter(function ($value){if ($value['cat_id']) return $value;}) as $item)
+                                            <option {{$item->id==$expense['sub_cat_id'] ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
+                                        @endforeach
+                                    </select>
+                                    <x-error name="sub_cat_id"></x-error>
                                 </div>
                             </div>
                         </div>
@@ -49,9 +54,19 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="address">{{__('Address')}}</label>
-                                    <input class="form-control" type="text" name="address" id="address" value="{{$bill['address']}}">
-                                    <x-error name="address"></x-error>
+                                    <label for="type">{{__('expenses.expense_type')}}</label>
+                                    <input class="form-control" type="text" name="type" id="type" value="{{$expense['type']}}">
+                                    <x-error name="type"></x-error>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="amount">{{__('Price')}}</label>
+                                    <input class="form-control" type="number" step="0.1" name="amount" id="amount" value="{{$expense['amount']}}">
+                                    <x-error name="amount"></x-error>
                                 </div>
                             </div>
                         </div>
@@ -60,9 +75,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="tax_number">{{__('bills.tax_number')}}</label>
-                                    <input class="form-control" type="tel" name="tax_number" id="tax_number" value="{{$bill['tax_number']}}">
-                                    <x-error name="tax_number"></x-error>
+                                    <label for="description">{{__('Description')}}</label>
+                                    <textarea class="form-control" name="description" id="description" cols="30" rows="5">{{$expense['description']}}</textarea>
+                                    <x-error name="description"></x-error>
                                 </div>
                             </div>
                         </div>
@@ -70,9 +85,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="bill_number">{{__('bills.bill_number')}}</label>
-                                    <input class="form-control" type="text" name="bill_number" id="bill_number" value="{{$bill['bill_number']}}">
-                                    <x-error name="bill_number"></x-error>
+                                    <label for="date">{{__('Date')}}</label>
+                                    <input class="form-control" type="date" name="date" id="bill_number" value="{{$expense['date']}}">
+                                    <x-error name="date"></x-error>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +104,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('javascript')
-    <x-datatable id="bills"></x-datatable>
 @endsection

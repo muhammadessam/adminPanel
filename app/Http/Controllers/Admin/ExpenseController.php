@@ -15,7 +15,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.expenses.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.expenses.create');
     }
 
     /**
@@ -36,7 +36,25 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'cat_id' => ['required', 'exists:expenses_categories,id', 'numeric'],
+            'sub_cat_id' => ['required', 'exists:expenses_categories,id', 'numeric'],
+            'type' => 'required',
+            'amount' => ['required', 'numeric'],
+            'description' => 'required',
+            'date' => 'required',
+        ], [], [
+            'cat_id' => trans('expenses.main_cat'),
+            'sub_cat_id' => trans('expenses.sub_cat'),
+            'type' => trans('expenses.expense_type'),
+            'amount' => trans('Price'),
+            'description' => trans('Description'),
+            'date' => trans('Date'),
+        ]);
+        Expense::create($request->all());
+        toast(trans('Deleted successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        return redirect()->route('admin.expenses.index');
     }
 
     /**
@@ -58,7 +76,7 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        //
+        return view('admin.expenses.edit', compact('expense'));
     }
 
     /**
@@ -70,7 +88,24 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, Expense $expense)
     {
-        //
+        $request->validate([
+            'cat_id' => ['required', 'exists:expenses_categories,id', 'numeric'],
+            'sub_cat_id' => ['required', 'exists:expenses_categories,id', 'numeric'],
+            'type' => 'required',
+            'amount' => ['required', 'numeric'],
+            'description' => 'required',
+            'date' => 'required',
+        ], [], [
+            'cat_id' => trans('expenses.main_cat'),
+            'sub_cat_id' => trans('expenses.sub_cat'),
+            'type' => trans('expenses.expense_type'),
+            'amount' => trans('Price'),
+            'description' => trans('Description'),
+            'date' => trans('Date'),
+        ]);
+        $expense->update($request->all());
+        toast(trans('Deleted successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        return redirect()->route('admin.expenses.index');
     }
 
     /**
@@ -81,6 +116,8 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //
+        $expense->delete();
+        toast(trans('Deleted successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        return redirect()->back();
     }
 }

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('adminPanel.Invoices')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('adminPanel.Expenses')}}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -14,30 +14,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header {{session('locale')=='ar' ? 'text-left' : 'text-right'}}">
-                    <a class="btn btn-success" href="{{route('admin.bills.create')}}"><i class="fa fa-plus"></i></a>
+                    <a class="btn btn-success" href="{{route('admin.expenses.create')}}"><i class="fa fa-plus"></i></a>
                 </div>
                 <div class="card-body" style="overflow: auto">
                     <table id="bills" class="table-striped table">
                         <thead>
                         <tr>
-                            <th>{{__('bills.branch_name')}}</th>
-                            <th>{{__('Phone')}}</th>
-                            <th>{{__('Address')}}</th>
-                            <th>{{__('bills.tax_number')}}</th>
-                            <th>{{__('bills.bill_number')}}</th>
-                            <th>{{__('Actions')}}</th>
+                            <th>{{__('expenses.main_cat')}}</th>
+                            <th>{{__('expenses.sub_cat')}}</th>
+                            <th>{{__('expenses.expense_type')}}</th>
+                            <th>{{__('Price')}}</th>
+                            <th>{{__('Description')}}</th>
+                            <th>{{__('Date')}}</th>
+                            <th>{{__('Action')}}</th>
                         </tr>
                         </thead>
-                        @foreach(\App\Bill::all() as $item)
+                        @foreach(\App\Expense::all() as $item)
                             <tr>
-                                <td>{{$item->branch['name']}}</td>
-                                <td>{{$item['phone']}}</td>
-                                <td>{{$item['address']}}</td>
-                                <td>{{$item['tax_number']}}</td>
-                                <td>{{$item['bill_number']}}</td>
+                                <td>{{$item->cat['name']}}</td>
+                                <td>{{$item->subCat['name']}}</td>
+                                <td>{{$item['type']}}</td>
+                                <td>{{$item['amount']}}</td>
+                                <td>{{$item['description']}}</td>
+                                <td>{{$item['date']}}</td>
                                 <td class="d-flex">
-                                    <a class="btn btn-primary ml-2" href="{{route('admin.bills.edit', $item)}}"><i class="fa fa-edit"></i></a>
-                                    <form class="form-inline" action="{{route('admin.bills.destroy', $item)}}" method="post" onsubmit="return confirm('{{__('Are you sure ?')}}')">
+                                    <a class="btn btn-primary ml-2" href="{{route('admin.expenses.edit', $item)}}"><i class="fa fa-edit"></i></a>
+                                    <form class="form-inline" action="{{route('admin.expenses.destroy', $item)}}" method="post" onsubmit="return confirm('{{__('Are you sure ?')}}')">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
