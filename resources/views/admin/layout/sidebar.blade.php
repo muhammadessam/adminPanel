@@ -88,9 +88,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="{{route('admin.brenchs.create')}}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
+                                <p>{{__('branch.create')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.brenchs.index')}}" class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>{{__('branch.all')}}</p>
                             </a>
                         </li>
                     </ul>
