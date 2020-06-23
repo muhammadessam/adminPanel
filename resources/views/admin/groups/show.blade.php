@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('expenses.expenses_subCat')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('expenses.expenses_subCat')}} - {{$group['name']}}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -14,9 +14,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <form class="form-inline" action="{{route('admin.expenses-categories.store')}}" method="post">
+                    <form class="form-inline" action="{{route('admin.groups.store')}}" method="post">
                         @csrf
-                        <input type="hidden" value="{{$expensesCategory['id']}}" name="cat_id">
+                        <input type="hidden" value="{{$group['id']}}" name="group_id">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -35,22 +35,24 @@
                             </div>
                         </div>
                     </form>
-                    <a class="btn btn-primary" href="{{route('admin.expenses-categories.index')}}"><i class="fa fa-list"></i></a>
+                    <a class="btn btn-primary" href="{{route('admin.groups.index')}}"><i class="fa fa-list"></i></a>
                 </div>
                 <div class="card-body" style="overflow: auto">
                     <table id="bills" class="table-striped table">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>{{__('Name')}}</th>
                             <th>{{__('Actions')}}</th>
                         </tr>
                         </thead>
-                        @foreach($expensesCategory->subCats as $item)
+                        @foreach($group->subGroups as $index=>$item)
                             <tr>
+                                <td>{{$index+1}}</td>
                                 <td>{{$item['name']}}</td>
                                 <td class="d-flex">
-                                    <a class="btn btn-primary ml-2" href="{{route('admin.expenses-categories.edit', $item)}}"><i class="fa fa-edit"></i></a>
-                                    <form class="form-inline" action="{{route('admin.expenses-categories.destroy', $item)}}" method="post" onsubmit="return confirm('{{__('Are you sure ?')}}')">
+                                    <a class="btn btn-primary ml-2" href="{{route('admin.groups.edit', $item)}}"><i class="fa fa-edit"></i></a>
+                                    <form class="form-inline" action="{{route('admin.groups.destroy', $item)}}" method="post" onsubmit="return confirm('{{__('Are you sure ?')}}')">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>

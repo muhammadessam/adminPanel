@@ -36,12 +36,12 @@ Route::prefix('admin')->group(function () {
         Route::post('byBrench', 'EmployeeController@byBrench')->name('brench_emps');
         Route::get('stoning/{employee}', 'EmployeeController@stoning')->name('stoning');
         Route::get('activating/{employee}', 'EmployeeController@activating')->name('activating');
-        Route::get('brench/stoning/{brench}', 'BrenchController@stoning')
-            ->name('brench_stoning');
-        Route::get('brench/activating/{brench}', 'BrenchController@activating')
-            ->name('brench_activating');
+        Route::get('brench/stoning/{brench}', 'BrenchController@stoning')->name('brench_stoning');
+        Route::get('brench/activating/{brench}', 'BrenchController@activating')->name('brench_activating');
         Route::resource('bills', 'BillController');
         Route::resource('expenses', 'ExpenseController');
         Route::resource('expenses-categories', 'ExpensesCategoryController');
+        Route::resource('groups', 'GroupController');
+        Route::resource('products', 'ProductController');
     });
 });

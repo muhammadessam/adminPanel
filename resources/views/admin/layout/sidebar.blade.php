@@ -54,7 +54,7 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p> </p>
+                                <p></p>
                             </a>
                         </li>
 
@@ -169,7 +169,14 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{route('admin.groups.index')}}" class="nav-link {{request()->routeIs('admin.groups.*') ? 'active':''}}">
+                        <i class="nav-icon fa fa-times-circle"></i>
+                        <p>
+                            {{__('groups.group_mange')}}
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-money"></i>
