@@ -10,7 +10,7 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    <div class="row">
+    <div class="row" id="bill">
         <div class="col-12">
             <div class="card">
                 <div class="card-header ">
@@ -23,64 +23,92 @@
                     <form action="{{route('admin.bills.store')}}" method="post">
                         @csrf
                         <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="branch_id">{{__('bills.branch_name')}}</label>
-                                    <select class="form-control" name="branch_id" id="branch_id">
-                                        @foreach(\App\Brench::all() as $item)
-                                            <option {{$item->id==old('branch_id') ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
-                                        @endforeach
-                                    </select>
-                                    <x-error name="branch_id"></x-error>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="branch_id">{{__('bills.branch_name')}}</label>
+                                            <select v-model="brench_id" class="form-control" name="branch_id" id="branch_id">
+                                                @foreach(\App\Brench::all() as $item)
+                                                    <option {{$item->id==old('branch_id') ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                            <x-error name="branch_id"></x-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="emp_id">{{__('bills.employee name')}}</label>
+                                            <select v-model="emp_id" class="form-control" name="emp_id" id="emp_id">
+                                                @foreach(\App\Employee::all() as $item)
+                                                    <option {{$item->id==old('emp_id') ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                            <x-error name="branch_id"></x-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="bill_way">{{__('bills.bill way')}}</label>
+                                            <select v-model="pay_way" class="form-control" name="bill_way" id="bill_way">
+                                                <option value="cash">{{__('bills.cash')}}</option>
+                                                <option value="credit">{{__('bills.credit')}}</option>
+                                            </select>
+                                            <x-error name="branch_id"></x-error>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-4">
+                                <table id="products" class="table text-center table-bordered">
+                                    <thead>
+                                        <th>{{__('product.name')}}</th>
+                                        <th>{{__('product.selling_price')}}</th>
+                                        <th>{{__('product.quantity')}}</th>
+                                        <th></th>
+                                    </thead>
+                                    @foreach(@App\Product::all() as $item)
+                                        <tr>
+                                            <td>{{$item['name']}}</td>
+                                            <td>{{$item['selling_price']}}</td>
+                                            <td>{{$item['quantity']}}</td>
+                                            <td>
+                                                <span @click="addProduct({{$item}})" class="btn btn-outline-success">
+                                                    {{__('bills.add to bill')}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="col-12 text-center">{{__('bills.products')}}</h4>
+                                <table id="products_bill" class="table text-center table-bordered">
+                                    <thead>
+                                    <th>{{__('product.name')}}</th>
+                                    <th>{{__('product.selling_price')}}</th>
+                                    <th></th>
+                                    </thead>
+                                    <tr v-for="product in bill_products">
+                                        <td>@{{ product.name }}</td>
+                                        <td>@{{ product.selling_price }}</td>
+                                        <td>
+                                            <span @click="removeProduct(product)" class="btn btn-outline-danger">
+                                                {{__('bills.remove')}}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">{{__('bills.total')}}</td>
+                                        <td>@{{ total }}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="phone">{{__('Phone')}}</label>
-                                    <input class="form-control" type="tel" name="phone" id="phone" value="{{old('phone')}}">
-                                    <x-error name="phone"></x-error>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="address">{{__('Address')}}</label>
-                                    <input class="form-control" type="text" name="address" id="address" value="{{old('address')}}">
-                                    <x-error name="address"></x-error>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="tax_number">{{__('bills.tax_number')}}</label>
-                                    <input class="form-control" type="tel" name="tax_number" id="tax_number" value="{{old('tax_number')}}">
-                                    <x-error name="tax_number"></x-error>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="bill_number">{{__('bills.bill_number')}}</label>
-                                    <input class="form-control" type="text" name="bill_number" id="bill_number" value="{{old('bill_number')}}">
-                                    <x-error name="bill_number"></x-error>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{__('Save')}}</button>
+                                    <span @click="newBill()" class="btn btn-outline-primary"><i class="fa fa-save"></i> {{__('Save')}}</span>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +117,49 @@
             </div>
         </div>
     </div>
+    <script>
+        const bill = new Vue({
+            el: '#bill',
+            data: {
+                brench_id:'',
+                emp_id:'',
+                pay_way:'',
+                products: [],
+                total:0,
+                bill_products:[],
+            },
+            methods:{
+                loadProducts(){
+                  axios.get('{{route('api_products')}}').then((data)=>{
+                      this.products = data.data;
+                  })
+                },
+                addProduct(item){
+                    this.total += item.selling_price;
+                    this.bill_products.push(item);
+                },
+                removeProduct(item) {
+                    this.total -= item.selling_price;
+                    this.bill_products.splice(this.bill_products.indexOf(item), 1);
+                },
+                newBill(){
+                    const data = {
+                        products:this.bill_products,
+                        brench_id:this.brench_id,
+                        emp_id:this.emp_id,
+                        pay_way:this.pay_way,
+                    };
+                    axios.post('{{route('api_new_bill')}}',data).then(()=>{
+                        window.location.href = '{{route('admin.bills.index')}}';
+                    })
+                }
+            },
+            created(){
+                this.loadProducts();
+            },
+        })
+    </script>
 @endsection
 @section('javascript')
-    <x-datatable id="bills"></x-datatable>
+    <x-datatable id="products"></x-datatable>
 @endsection

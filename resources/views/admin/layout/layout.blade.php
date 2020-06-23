@@ -34,7 +34,8 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- bootstrap rtl -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     @if(session('locale')=='ar')
         <link rel="stylesheet" href="{{asset('admin/dist/css/bootstrap-rtl.min.css')}}">
         <!-- template rtl version -->
