@@ -2,8 +2,8 @@
 @section('content')
     <div class="container pt-3">
         <h4 class="col-12 text-center mb-3">{{__('branch.all_header')}}</h4>
-        <table class="table table-bordered">
-            <tr>
+        <table id="brench" class="table table-bordered">
+            <thead>
                 <th>{{__('branch.name')}}</th>
                 <th>{{__('branch.country')}}</th>
                 <th>{{__('branch.city')}}</th>
@@ -15,7 +15,7 @@
                 <th>{{__('branch.long')}}</th>
                 <th>{{__('branch.lat')}}</th>
                 <th>{{__('branch.controller')}}</th>
-            </tr>
+            </thead>
             @foreach($brenchs as $brench)
                 <tr>
                     <td>{{$brench->name}}</td>
@@ -56,3 +56,7 @@
         </table>
     </div>
 @endsection
+@section('javascript')
+    <x-datatable id="brench"></x-datatable>
+@endsection
+

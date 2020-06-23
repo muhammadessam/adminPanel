@@ -69,12 +69,12 @@
                 <h4>{{__('human_r.salaries')}}</h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered text-center">
-                    <tr>
+                <table id="salaries" class="table table-bordered text-center">
+                    <thead>
                         <td>{{__('human_r.brench name')}}</td>
                         <td>{{__('human_r.employees count')}}</td>
                         <td>{{__('human_r.salaries in brench')}}</td>
-                    </tr>
+                    </thead>
                     @foreach(@App\Brench::all() as $b)
                         <tr>
                             <td>{{$b->name}}</td>
@@ -82,6 +82,8 @@
                             <td>{{$b->employees->sum('salary')}}</td>
                         </tr>
                     @endforeach
+                </table>
+                <table class="table table-bordered text-center">
                     <tr>
                         <td colspan="2">{{__('human_r.all salaries')}}</td>
                         <td>{{@App\Employee::all()->sum('salary')}}</td>
@@ -103,3 +105,7 @@
         }
     </script>
 @endsection
+@section('javascript')
+    <x-datatable id="salaries"></x-datatable>
+@endsection
+
