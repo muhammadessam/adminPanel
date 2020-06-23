@@ -9,10 +9,15 @@
   "Arabic": "العربية",
   "English": "الانجليزية",
   "All": "الكل",
-  "Phone" : "الهاتف",
-  "Address" : "العنوان",
+  "Phone": "الهاتف",
+  "Address": "العنوان",
   "Actions": "اجراءت",
   "Action": "اجراء",
-  "Add new" : "اضافة جديد",
-  "Are you sure ?": "هل انت متاكد ؟"
+  "Add new": "اضافة جديد",
+  "Are you sure ?": "هل انت متاكد ؟",
+  "Name": "الاسم",
+  "Edit": "تعديل",
+  "Price": "السعر",
+  "Description": "الوصف",
+  "Date": "التاريخ"
 }

@@ -28,14 +28,16 @@ Route::prefix('admin')->group(function () {
         Route::get('home', 'HomeController@index')->name('home');
 
         Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
-        Route::resource('brenchs','BrenchController');
-        Route::resource('employees','EmployeeController');
-        Route::get('humanR','HumanResourceController@index')->name('human_r');
-        Route::get('StonedAll','EmployeeController@stoned')->name('stoned_emps');
-        Route::get('ActiveAll','EmployeeController@active')->name('active_emps');
-        Route::post('byBrench','EmployeeController@byBrench')->name('brench_emps');
-        Route::get('stoning/{employee}','EmployeeController@stoning')->name('stoning');
-        Route::get('activating/{employee}','EmployeeController@activating')->name('activating');
+        Route::resource('brenchs', 'BrenchController');
+        Route::resource('employees', 'EmployeeController');
+        Route::get('humanR', 'HumanResourceController@index')->name('human_r');
+        Route::get('StonedAll', 'EmployeeController@stoned')->name('stoned_emps');
+        Route::get('ActiveAll', 'EmployeeController@active')->name('active_emps');
+        Route::post('byBrench', 'EmployeeController@byBrench')->name('brench_emps');
+        Route::get('stoning/{employee}', 'EmployeeController@stoning')->name('stoning');
+        Route::get('activating/{employee}', 'EmployeeController@activating')->name('activating');
         Route::resource('bills', 'BillController');
+        Route::resource('expenses', 'ExpenseController');
+        Route::resource('expenses-categories', 'ExpensesCategoryController');
     });
 });
