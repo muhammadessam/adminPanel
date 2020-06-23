@@ -38,7 +38,10 @@ class GroupController extends Controller
     {
         $request->validate([
             'name' => 'required',
-        ], [], []);
+        ], [], ['name' => trans('Name')]);
+        Group::create($request->all());
+        toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        return redirect()->back();
     }
 
     /**
@@ -49,7 +52,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return view('admin.groups.show', compact('group'));
     }
 
     /**
@@ -60,7 +63,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('admin.groups.edit', compact('group'));
     }
 
     /**
@@ -72,7 +75,16 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ], [], [
+            'name' => trans('Name')
+        ]);
+        $group->update($request->all());
+        toast(trans('Updated successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        if ($group['cat_id'])
+            return redirect()->route('admin.groups.show', $group['cat_id']);
+        return redirect()->route('admin.groups.index');
     }
 
     /**
@@ -83,6 +95,8 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $group->delete();
+        toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        return redirect()->back();
     }
 }

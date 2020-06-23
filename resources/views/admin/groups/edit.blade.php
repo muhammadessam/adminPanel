@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('expenses.expenses_category')}}</h1>
+                    <h1 class="m-0 text-dark">{{__('groups.group_mange')}}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -16,18 +16,18 @@
                 <div class="card-header ">
                     <h4 class="card-title">{{__('Edit')}}</h4>
                     <div class="card-tools">
-                        <a class="btn btn-success" href="{{route('admin.expenses-categories.index')}}"><i class="fa fa-list"></i></a>
+                        <a class="btn btn-success" href="{{route('admin.groups.index')}}"><i class="fa fa-list"></i></a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.expenses-categories.update', $expensesCategory)}}" method="post">
+                    <form action="{{route('admin.groups.update', $group)}}" method="post">
                         @csrf
                         @method('PATCH')
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="name">{{__('Name')}}</label>
-                                    <input class="form-control" type="tel" name="name" id="name" value="{{$expensesCategory['name']}}">
+                                    <input class="form-control" type="tel" name="name" id="name" value="{{$group['name']}}">
                                     <x-error name="name"></x-error>
                                 </div>
                             </div>

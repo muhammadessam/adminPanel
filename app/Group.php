@@ -8,7 +8,7 @@ class Group extends Model
 {
     protected $guarded = [];
 
-    public function subGroup()
+    public function subGroups()
     {
         return $this->hasMany(Group::class, 'group_id', 'id');
 
