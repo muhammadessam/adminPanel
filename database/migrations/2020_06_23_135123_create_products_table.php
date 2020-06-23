@@ -27,7 +27,6 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('bar_code');
             $table->boolean('can_sell_unavailable');
             $table->unsignedBigInteger('branch_id');
-
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->foreign('sub_group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->foreign('branch_id')->references('id')->on('brenches')->onDelete('cascade');

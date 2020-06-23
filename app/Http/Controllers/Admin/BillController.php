@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Bill;
+use App\ProductBill;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -114,5 +115,13 @@ class BillController extends Controller
         $bill->delete();
         toast(trans('Deleted successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
         return redirect()->back();
+    }
+    public function newBill(Request $request){
+        $bill = Bill::create($request->only('brench_id','emp_id','pay_way'));
+        $products = $request->get('products');
+        foreach ($products as $item){
+            ProductBill::create(['product_id'=>$item['id'],'bill_id'=>$bill['id']]);
+        }
+        return '1';
     }
 }
