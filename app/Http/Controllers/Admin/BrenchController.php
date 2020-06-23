@@ -113,4 +113,16 @@ class BrenchController extends Controller
         $brench->delete();
         return Redirect::route('admin.brenchs.index');
     }
+    public function stoning(Brench $brench)
+    {
+        $brench->status = "stoned";
+        $brench->save();
+        return Redirect::back();
+    }
+    public function activating(Brench $brench)
+    {
+        $brench->status = "active";
+        $brench->save();
+        return Redirect::back();
+    }
 }

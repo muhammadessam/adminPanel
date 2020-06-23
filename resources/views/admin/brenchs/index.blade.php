@@ -14,6 +14,7 @@
                 <th>{{__('branch.email')}}</th>
                 <th>{{__('branch.long')}}</th>
                 <th>{{__('branch.lat')}}</th>
+                <th>{{__('employee.status')}}</th>
                 <th>{{__('branch.controller')}}</th>
             </thead>
             @foreach($brenchs as $brench)
@@ -30,9 +31,14 @@
                     <td>{{$brench->email}}</td>
                     <td>{{$brench->long}}</td>
                     <td>{{$brench->lat}}</td>
+                    <td>{{__('branch.'.$brench->status)}}</td>
                     <td>
                         <a class="btn btn-info" href="{{route('admin.brenchs.edit',$brench)}}">
                             {{__('branch.edit')}}
+                        </a>
+                        <a class="btn btn-warning"
+                           href="{{route($brench->status == "stoned"?'admin.brench_activating':'admin.brench_stoning',$brench)}}">
+                            {{__('branch.change statue')}}
                         </a>
                         <form action="{{route('admin.brenchs.destroy',$brench)}}" method="post">
                             @csrf

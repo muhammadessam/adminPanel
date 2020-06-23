@@ -32,4 +32,7 @@ return [
     'edit'          => 'Edit',
     'delete'        => 'Delete',
     'empty'         => 'There is no Records Yet',
+    'stoned'        => 'Closed',
+    'active'        => 'Active',
+    'change statue' => 'Change Statue'
 ];

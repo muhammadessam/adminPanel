@@ -32,4 +32,7 @@ return [
     'edit'          => 'تعديل',
     'delete'        => 'حذف',
     'empty'         => 'لم يسجل اي فرع بعد',
+    'stoned'        => 'مغلق',
+    'active'        => 'مفعل',
+    'change statue' => 'تغيير الحالة'
 ];
