@@ -26,6 +26,9 @@ class AlterSettingsTableAddIcon extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('settings',function (Blueprint $table){
+            $table->dropColumn('icon');
+            $table->dropColumn('logo');
+        });
     }
 }

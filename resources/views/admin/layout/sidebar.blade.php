@@ -152,8 +152,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview {{request()->routeIs('admin.brenchs.*') ? 'menu-open' : ''}}">
+                    <a href="#" class="nav-link {{request()->routeIs('admin.brenchs.*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
                             {{__('adminPanel.Store')}}
@@ -162,9 +162,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="{{route('admin.brenchs.index')}}" class="nav-link {{request()->routeIs('admin.brenchs.*') ? 'active' : ''}}">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
+                                <p>{{__('All')}}</p>
                             </a>
                         </li>
                     </ul>

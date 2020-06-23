@@ -17,15 +17,16 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('group_id');
             $table->unsignedBigInteger('sub_group_id');
+            $table->text('name');
             $table->double('quantity');
             $table->enum('quantity_type', ['piece', 'Carton', 'grain']);
             $table->double('buying_price');
             $table->double('selling_price');
-            $table->double('lower_price');
-            $table->text('img');
+            $table->double('lower_price')->nullable()->default(null);
+            $table->text('img')->nullable()->default(null);
             $table->date('expired_at')->nullable()->default(null);
             $table->unsignedBigInteger('bar_code');
-            $table->boolean('can_sell_unavailable');
+            $table->boolean('can_sell_unavailable')->default(false);
             $table->unsignedBigInteger('branch_id');
 
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
