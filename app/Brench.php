@@ -26,6 +26,6 @@ class Brench extends Model
 
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'branch_id', 'id');
+        return $this->hasMany(Bill::class, 'brench_id', 'id');
     }
 }
