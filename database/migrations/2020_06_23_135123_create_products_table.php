@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('group_id');
-            $table->unsignedBigInteger('sub_group_id');
+            $table->unsignedBigInteger('sub_group_id')->nullable()->default(null);
             $table->text('name');
             $table->double('quantity');
             $table->enum('quantity_type', ['piece', 'Carton', 'grain']);

@@ -38,7 +38,6 @@ class ProductController extends Controller
     {
         $request->validate([
             'group_id' => ['required', 'exists:groups,id'],
-            'sub_group_id' => ['required', 'exists:groups,id'],
             'name' => 'required',
             'quantity' => ['required', 'numeric'],
             'quantity_type' => 'required',
@@ -102,9 +101,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'group_id' => ['required', 'exists:groups,id'],
-            'sub_group_id' => ['required', 'exists:groups,id'],
             'name' => 'required',
+            'group_id' => ['required', 'exists:groups,id'],
             'quantity' => ['required', 'numeric'],
             'quantity_type' => 'required',
             'buying_price' => ['required', 'numeric'],
