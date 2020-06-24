@@ -161,23 +161,15 @@
                     </ul>
                 </li>
 
-{{--                <li class="nav-item has-treeview {{request()->routeIs('admin.brenchs.*') ? 'menu-open' : ''}}">--}}
-{{--                    <a href="#" class="nav-link {{request()->routeIs('admin.brenchs.*') ? 'active' : ''}}">--}}
-{{--                        <i class="nav-icon fa fa-home"></i>--}}
-{{--                        <p>--}}
-{{--                            {{__('adminPanel.Store')}}--}}
-{{--                            <i class="fa fa-angle-left right"></i>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.brenchs.index')}}" class="nav-link {{request()->routeIs('admin.brenchs.*') ? 'active' : ''}}">--}}
-{{--                                <i class="fa fa-circle-o nav-icon"></i>--}}
-{{--                                <p>{{__('All')}}</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a href="{{route('admin.main-store.index')}}" class="nav-link {{request()->routeIs('admin.main-store.*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-home"></i>
+                        <p>
+                            {{__('Main store')}}
+                            <i class="fa right"></i>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{route('admin.groups.index')}}" class="nav-link {{request()->routeIs('admin.groups.*') ? 'active':''}}">
                         <i class="nav-icon fa fa-times-circle"></i>

@@ -14,27 +14,13 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header ">
-                    <h4 class="card-title">{{__('Add new')}}</h4>
-                    <div class="card-tools">
-                        <a class="btn btn-success" href="{{route('admin.brenchs.show', $product['branch_id'])}}"><i class="fa fa-list"></i></a>
-                    </div>
+                    <h4 class="card-title">{{__('Edit')}}</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.products.update', $product)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="branch_id">{{__('products.branch_id')}}</label>
-                                    <select class="form-control" name="branch_id" id="branch_id">
-                                        @foreach(\App\Brench::all() as $item)
-                                            <option {{$item['id']==$product['id'] ? 'selected' : ''}} value="{{$item['id']}}">{{$item['name']}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -129,6 +115,11 @@
                                     <input class="form-control" type="file" name="img_temp" id="img_temp" value="{{$product['img_temp']}}">
                                     <x-error name="img_temp"></x-error>
                                 </div>
+                                @if($product['img'])
+                                    <div>
+                                        <img class="img-thumbnail w-25" src="{{asset($product['img'])}}" alt="">
+                                    </div>
+                                @endif
                             </div>
                         </div>
 

@@ -78,9 +78,6 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{trans('products.Products')}} - {{$brench['name']}}</h3>
-                    <div class="card-tools">
-                        <a class="btn btn-primary" href="{{route('admin.products.create')."/?branch=$brench->id"}}"><i class="fa fa-plus"></i></a>
-                    </div>
                 </div>
                 <div class="card-body" style="overflow: auto">
                     <table id="products" class="table-striped table">
@@ -109,7 +106,7 @@
                                 <td>{{$item['name']}}</td>
                                 <td>{{$item->group['name']}}</td>
                                 <td>{{$item->sub_group['name']}}</td>
-                                <td>{{$item['quantity']}}</td>
+                                <td>{{$item->pivot['quantity']}}</td>
                                 <td>{{$item['quantity_type']}}</td>
                                 <td>{{$item['buying_price']}}</td>
                                 <td>{{$item['selling_price']}}</td>

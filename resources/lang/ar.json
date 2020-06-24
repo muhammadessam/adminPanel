@@ -20,8 +20,13 @@
   "Price": "السعر",
   "Description": "الوصف",
   "Date": "التاريخ",
-  "Product" : "منتج",
-  "Image" : "صورة",
+  "Product": "منتج",
+  "Image": "صورة",
   "Yes": "نعم",
-  "No": "لا"
+  "No": "لا",
+  "Main store": "المخزن الرئيسي",
+  "Quantity": "الكمية",
+  "Please select branch": "من فضلك اختر فرع",
+  "Send to branch ": "ارسال الي الفرع",
+  "Quantity not available": "الكمية غير موجودة"
 }

@@ -43,7 +43,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('expenses-categories', 'ExpensesCategoryController');
         Route::resource('groups', 'GroupController');
         Route::resource('products', 'ProductController');
-        Route::view('/storage','admin.storage.index')->name('storage');
+        Route::view('/storage', 'admin.storage.index')->name('storage');
         Route::get('sub-group/{group}', 'GroupController@getAllSubGroups')->name('getMainGroupSubGroup');
+        Route::get('main-store', 'MainStoreController@index')->name('main-store.index');
+        Route::post('distribute-product/{product}', 'MainStoreController@distribute')->name('distribute-product');
     });
 });

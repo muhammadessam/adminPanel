@@ -15,14 +15,10 @@
             <div class="card">
                 <div class="card-header ">
                     <h4 class="card-title">{{__('Add new')}}</h4>
-                    <div class="card-tools">
-                        <a class="btn btn-success" href="{{route('admin.brenchs.show', request()->get('branch'))}}"><i class="fa fa-list"></i></a>
-                    </div>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.products.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="branch_id" value="{{request()->get('branch')}}">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -98,7 +94,6 @@
                                 </div>
                             </div>
                         </div>
-
 
 
                         <div class="row">

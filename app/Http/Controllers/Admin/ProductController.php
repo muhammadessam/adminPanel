@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\MainStore;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,7 +47,6 @@ class ProductController extends Controller
             'lower_price' => 'nullable|numeric',
             'img_temp' => 'image',
             'bar_code' => 'required',
-            'branch_id' => ['required', 'exists:brenches,id'],
         ], [], [
             'group_id' => __('groups.main_group'),
             'sub_group_id' => __('groups.sub_group'),
@@ -58,15 +58,14 @@ class ProductController extends Controller
             'lower_price' => __('products.lower_price'),
             'img_temp' => __('Image'),
             'bar_code' => __('products.bar_code'),
-            'branch_id' => __('branch.name'),
         ]);
 
         if ($request->hasFile('img_temp'))
             $request['img'] = $this->storeFile('products', 'img_temp');
-
+        $request['store_id'] = MainStore::MainStore()->id;
         Product::create($request->except('img_temp'));
         toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
-        return redirect()->route('admin.brenchs.show', $request['branch_id']);
+        return redirect()->route('admin.main-store.index');
     }
 
     /**
@@ -110,7 +109,6 @@ class ProductController extends Controller
             'lower_price' => 'nullable|numeric',
             'img_temp' => 'image',
             'bar_code' => 'required',
-            'branch_id' => ['required', 'exists:brenches,id'],
         ], [], [
             'group_id' => __('groups.main_group'),
             'sub_group_id' => __('groups.sub_group'),
@@ -122,7 +120,6 @@ class ProductController extends Controller
             'lower_price' => __('products.lower_price'),
             'img_temp' => __('Image'),
             'bar_code' => __('products.bar_code'),
-            'branch_id' => __('branch.name'),
         ]);
 
         if ($request->hasFile('img_temp'))
@@ -130,7 +127,7 @@ class ProductController extends Controller
 
         $product->update($request->except('img_temp'));
         toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
-        return redirect()->route('admin.brenchs.show', $request['branch_id']);
+        return redirect()->route('admin.main-store.index');
     }
 
     /**
