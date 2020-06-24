@@ -9,6 +9,7 @@ class Bill extends Model
     protected $guarded = [];
     protected $fillable = [
         'pay_way',
+        'paid',
         'status',
         'emp_id',
         'brench_id',

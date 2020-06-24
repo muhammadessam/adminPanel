@@ -117,7 +117,7 @@ class BillController extends Controller
         return redirect()->back();
     }
     public function newBill(Request $request){
-        $bill = Bill::create($request->only('brench_id','emp_id','pay_way'));
+        $bill = Bill::create($request->only('brench_id','emp_id','pay_way','paid'));
         $products = $request->get('products');
         foreach ($products as $item){
             ProductBill::create(['product_id'=>$item['id'],'bill_id'=>$bill['id']]);

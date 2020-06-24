@@ -33,7 +33,6 @@
                                                     <option {{$item->id==old('branch_id') ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
                                                 @endforeach
                                             </select>
-                                            <x-error name="branch_id"></x-error>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -44,7 +43,12 @@
                                                     <option {{$item->id==old('emp_id') ? 'selected':''}} value="{{$item['id']}}">{{$item['name']}}</option>
                                                 @endforeach
                                             </select>
-                                            <x-error name="branch_id"></x-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="paid">{{__('bills.payed value')}}</label>
+                                            <input class="form-control" type="number" v-model="paid" name="paid" id="paid">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -54,7 +58,6 @@
                                                 <option value="cash">{{__('bills.cash')}}</option>
                                                 <option value="credit">{{__('bills.credit')}}</option>
                                             </select>
-                                            <x-error name="branch_id"></x-error>
                                         </div>
                                     </div>
                                 </div>
@@ -126,6 +129,7 @@
                 pay_way:'',
                 products: [],
                 total:0,
+                paid:0,
                 bill_products:[],
             },
             methods:{
@@ -148,6 +152,7 @@
                         brench_id:this.brench_id,
                         emp_id:this.emp_id,
                         pay_way:this.pay_way,
+                        paid:this.paid,
                     };
                     axios.post('{{route('api_new_bill')}}',data).then(()=>{
                         window.location.href = '{{route('admin.bills.index')}}';

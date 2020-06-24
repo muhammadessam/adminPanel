@@ -44,5 +44,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('groups', 'GroupController');
         Route::resource('products', 'ProductController');
         Route::view('/storage','admin.storage.index')->name('storage');
+        Route::get('/money','MoneyController@index')->name('money');
     });
 });
