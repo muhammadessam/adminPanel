@@ -99,4 +99,10 @@ class GroupController extends Controller
         toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
         return redirect()->back();
     }
+
+
+    public function getAllSubGroups(Request $request, Group $group)
+    {
+        return $group->subGroups;
+    }
 }

@@ -28,4 +28,9 @@ class Brench extends Model
     {
         return $this->hasMany(Bill::class, 'brench_id', 'id');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'branch_product', 'branch_id', 'product_id')->withPivot('quantity');
+    }
 }

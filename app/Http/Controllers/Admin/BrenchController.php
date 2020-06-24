@@ -18,7 +18,7 @@ class BrenchController extends Controller
     public function index()
     {
         $brenchs = Brench::all();
-        return view('admin.brenchs.index',compact('brenchs'));
+        return view('admin.brenchs.index', compact('brenchs'));
     }
 
     /**
@@ -34,26 +34,26 @@ class BrenchController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'          =>'required',
-            'country'       =>'required',
-            'city'          =>'required',
-            'address'       =>'required',
-            'manger_phone'  =>'required',
-            'tax_number'    =>'required',
-            'tax_image'     =>'required',
-            'email'         =>'required',
-            'long'          =>'required',
-            'lat'           =>'required',
+            'name' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+            'manger_phone' => 'required',
+            'tax_number' => 'required',
+            'tax_image' => 'required',
+            'email' => 'required',
+            'long' => 'required',
+            'lat' => 'required',
         ]);
         $image = '';
-        if ($request->hasFile('tax_image')){
-            $image = Storage::disk('public')->putFile('images',$request->file('tax_image'));
+        if ($request->hasFile('tax_image')) {
+            $image = Storage::disk('public')->putFile('images', $request->file('tax_image'));
             $data['tax_image'] = $image;
         }
         $brench = Brench::create($data);
@@ -64,38 +64,38 @@ class BrenchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Brench  $brench
+     * @param \App\Brench $brench
      * @return \Illuminate\Http\Response
      */
     public function show(Brench $brench)
     {
-        //
+        return view('admin.brenchs.show', compact('brench'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Brench  $brench
+     * @param \App\Brench $brench
      * @return \Illuminate\Http\Response
      */
     public function edit(Brench $brench)
     {
-        return view('admin.brenchs.edit',compact('brench'));
+        return view('admin.brenchs.edit', compact('brench'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Brench  $brench
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Brench $brench
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Brench $brench)
     {
-        $data = $request->except('_token','_method');
+        $data = $request->except('_token', '_method');
         $image = $brench['tax_image'];
-        if ($request->hasFile('tax_image')){
-            $image = Storage::disk('public')->putFile('images',$request->file('tax_image'));
+        if ($request->hasFile('tax_image')) {
+            $image = Storage::disk('public')->putFile('images', $request->file('tax_image'));
             $data['tax_image'] = $image;
         }
         $brench->update($data);
@@ -105,7 +105,7 @@ class BrenchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Brench  $brench
+     * @param \App\Brench $brench
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Brench $brench)
@@ -113,12 +113,14 @@ class BrenchController extends Controller
         $brench->delete();
         return Redirect::route('admin.brenchs.index');
     }
+
     public function stoning(Brench $brench)
     {
         $brench->status = "stoned";
         $brench->save();
         return Redirect::back();
     }
+
     public function activating(Brench $brench)
     {
         $brench->status = "active";

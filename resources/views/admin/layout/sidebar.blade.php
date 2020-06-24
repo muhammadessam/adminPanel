@@ -169,22 +169,14 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="{{route('admin.main-store.index')}}" class="nav-link {{request()->routeIs('admin.main-store.*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
-                            {{__('adminPanel.Store')}}
-                            <i class="fa fa-angle-left right"></i>
+                            {{__('Main store')}}
+                            <i class="fa right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p></p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.groups.index')}}" class="nav-link {{request()->routeIs('admin.groups.*') ? 'active':''}}">
