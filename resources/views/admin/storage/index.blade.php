@@ -2,7 +2,7 @@
 @section('content')
     <div class="container pt-3">
         <h3 class="col-12 text-center">{{__('storage.title')}}</h3>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center storage_table">
             <?php $total =0; ?>
             <?php $total1 =0; ?>
             <tr>

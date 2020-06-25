@@ -7,13 +7,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="{{asset('admin/plugins/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{asset('admin/dist/css/ionicons.min.css')}}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/dist/css/custom-style.css')}}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('admin/plugins/iCheck/flat/blue.css')}}">
     <!-- Morris chart -->

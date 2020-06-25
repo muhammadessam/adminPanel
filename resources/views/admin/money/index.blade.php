@@ -1,18 +1,20 @@
 @extends('admin.layout.layout')
 @section('content')
-    <div class="container" id="money">
+    <div class="container py-2" id="money">
         <h3 class="col-12 text-center mb-3 mt-3">{{__('money.title')}}</h3>
-        <div class="row justify-content-center">
-            <div class="card col-3 bg-danger-gradient p-2">
+        <div class="row justify-content-center mnmn-w ">
+            <div class="card col-3 bg-danger text-white p-2">
                 <h4 class=" text-center ">{{__('money.lose')}}</h4>
 
                 <span class="text-center ">@{{ totalLose() }}</span>
+                <i class="fas fa-sort-amount-down-alt index-val"></i>
             </div>
             <div class="col-1"></div>
-            <div class="card col-3 bg-success-gradient p-2">
+            <div class="card col-3 bg-success text-white p-2">
                 <h4 class=" text-center ">{{__('storage.rest')}}</h4>
 
                 <span class=" text-center ">@{{ totalRest() }}</span>
+                <i class="fas fa-sort-amount-up index-val"></i>
             </div>
         </div>
         <div  class="card p-3">
