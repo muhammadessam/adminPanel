@@ -26,12 +26,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a target="_blank" href="{{url('/')}}" class="nav-link active">
+                            <a target="_blank" href="{{url('/')}}" class="nav-link ">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>{{__('adminPanel.Main Ui')}}</p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a  href="{{route('admin.home')}}" class="nav-link ">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>{{__('dashboard.Statics')}}</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
