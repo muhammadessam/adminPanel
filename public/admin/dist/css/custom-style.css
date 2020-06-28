@@ -305,3 +305,13 @@ ul {
     color: #000;
     font-weight: normal;
 }
+.hager {
+    background-color: #b84d4db3;
+    color: #fff;
+}
+.copy-am {
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: #28a745c7;
+}

@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::get('home', 'HomeController@index')->name('home');
         Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
+        Route::resource('about', 'AboutController');
         Route::resource('brenchs', 'BrenchController');
         Route::resource('employees', 'EmployeeController');
         Route::get('humanR', 'HumanResourceController@index')->name('human_r');

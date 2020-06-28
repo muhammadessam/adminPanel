@@ -40,6 +40,14 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.about.index')}}" class="nav-link {{request()->routeIs('admin.about.index') ?'active' : ''}}">
+                        <i class="nav-icon far fa-address-card"></i>
+                        <p>
+                            {{__('adminPanel.about')}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.settings.index')}}" class="nav-link {{request()->routeIs('admin.settings.index') ?'active' : ''}}">
                         <i class="nav-icon fa fa-spin fa-cog"></i>
                         <p>
