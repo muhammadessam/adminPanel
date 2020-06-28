@@ -17,6 +17,7 @@ return [
     'Copy rights' => 'Copy rights reserved to',
     'Main' => 'Main',
     'Settings' => 'Settings',
+    'about' => 'About Program',
     'Notifications' => 'Notifications',
     'Admins Management' => 'Admins Management',
     'Branches' => 'Branches',
