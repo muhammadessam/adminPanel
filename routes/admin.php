@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('lang/{locale}', 'LocalizationController@index')->name('changeLang');
 Route::prefix('admin')->group(function () {
 
+    Route::get('product/export', 'ProductController@export')->name('export_products');
+    Route::get('product/importExportView', 'ProductController@importExportView')
+        ->name('import_view');
+    Route::post('product/import', 'ProductController@import')->name('import_products');
     Route::namespace('Auth')->middleware('guest:admin')->group(function () {
 
         Route::get('/login', 'LoginController@showLoginForm')->name('login');

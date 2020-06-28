@@ -46,6 +46,10 @@
                         <input type="file" class="form-control" name="tax_image" id="tax_image">
                     </div>
                     <div class="form-group">
+                        <label for="logo">{{trans('branch.logo')}}</label>
+                        <input type="file" class="form-control" name="logo" id="logo">
+                    </div>
+                    <div class="form-group">
                         <img id="blah" height="100px">
                     </div>
                 </div>

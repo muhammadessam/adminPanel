@@ -49,6 +49,13 @@
                     <div class="form-group">
                         <img id="blah" src="{{asset($brench['tax_image'])}}" height="100px">
                     </div>
+                    <div class="form-group">
+                        <label for="logo">{{trans('branch.logo')}}</label>
+                        <input type="file" class="form-control" name="logo" id="logo">
+                    </div>
+                    <div class="form-group">
+                        <img id="blah2" src="{{asset($brench['logo'])}}" height="100px">
+                    </div>
                 </div>
                 <div class="col-4">
                     <div class="form-group">
@@ -83,6 +90,21 @@
 
         $("#tax_image").change(function() {
             readURL(this);
+        });
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#logo").change(function() {
+            readURL2(this);
         });
     </script>
 @endsection

@@ -15,6 +15,7 @@ class Brench extends Model
         'tax_number',
         'tax_image',
         'email',
+        'logo',
         'long',
         'lat',
     ];

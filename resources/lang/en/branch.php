@@ -34,5 +34,7 @@ return [
     'empty'         => 'There is no Records Yet',
     'stoned'        => 'Closed',
     'active'        => 'Active',
-    'change statue' => 'Change Statue'
+    'change statue' => 'Change Statue',
+    'logo'          => 'Logo',
+
 ];

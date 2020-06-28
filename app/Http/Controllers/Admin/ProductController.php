@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ProductExport;
+use App\Imports\ProductImport;
 use App\MainStore;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -141,5 +144,30 @@ class ProductController extends Controller
         $product->delete();
         toast(trans('Saved successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
         return redirect()->back();
+    }
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function importExportView()
+    {
+        return view('admin.products.import');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function export()
+    {
+        return Excel::download(new ProductExport, 'products.xlsx');
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function import()
+    {
+        Excel::import(new ProductImport,request()->file('file'));
+
+        return back();
     }
 }

@@ -49,12 +49,17 @@ class BrenchController extends Controller
             'tax_image' => 'required',
             'email' => 'required',
             'long' => 'required',
+            'logo' => 'required',
             'lat' => 'required',
         ]);
         $image = '';
         if ($request->hasFile('tax_image')) {
             $image = Storage::disk('public')->putFile('images', $request->file('tax_image'));
             $data['tax_image'] = $image;
+        }
+        if ($request->hasFile('logo')) {
+            $image = Storage::disk('public')->putFile('images', $request->file('logo'));
+            $data['logo'] = $image;
         }
         $brench = Brench::create($data);
         return Redirect::route('admin.brenchs.index');
@@ -94,9 +99,14 @@ class BrenchController extends Controller
     {
         $data = $request->except('_token', '_method');
         $image = $brench['tax_image'];
+        $logo = $brench['logo'];
         if ($request->hasFile('tax_image')) {
             $image = Storage::disk('public')->putFile('images', $request->file('tax_image'));
             $data['tax_image'] = $image;
+        }
+        if ($request->hasFile('logo')) {
+            $logo = Storage::disk('public')->putFile('images', $request->file('logo'));
+            $data['logo'] = $logo;
         }
         $brench->update($data);
         return Redirect::route('admin.brenchs.index');

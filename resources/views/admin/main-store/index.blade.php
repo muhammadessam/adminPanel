@@ -18,9 +18,19 @@
                     <h3 class="card-title">{{__('products.Products')}} - {{__('Main store')}}</h3>
                     <div class="card-tools">
                         <a class="btn btn-primary" href="{{route('admin.products.create')}}"><i class="fa fa-plus"></i></a>
+{{--                        <a class="btn btn-success" href="{{route('admin.import_view')}}"><i class="fa fa-plus-circle"></i></a>--}}
+                        <a class="btn btn-warning" href="{{route('admin.export_products')}}"><i class="fa fa-save"></i></a>
                     </div>
                 </div>
                 <div class="card-body" style="overflow: auto">
+                    <div class="card-body">
+                        <form action="{{ route('admin.import_products') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="file" required class="form-control">
+                            <br>
+                            <button class="btn btn-success">استيراد بيانات من ملف الexcel</button>
+                        </form>
+                    </div>
                     <table id="products" class="table-striped table">
                         <thead>
                         <tr>
@@ -41,7 +51,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach(\App\MainStore::MainStore()->products as $index=>$item)
+                        @foreach(@App\Product::all() as $index=>$item)
                             <tr>
                                 <td>{{$item['id']}}</td>
                                 <td>{{$item['name']}}</td>

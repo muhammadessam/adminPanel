@@ -34,5 +34,6 @@ return [
     'empty'         => 'لم يسجل اي فرع بعد',
     'stoned'        => 'مغلق',
     'active'        => 'مفعل',
-    'change statue' => 'تغيير الحالة'
+    'change statue' => 'تغيير الحالة',
+    'logo' => 'الشعار',
 ];

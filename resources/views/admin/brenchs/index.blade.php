@@ -22,6 +22,7 @@
                         <th>{{__('branch.address')}}</th>
                         <th>{{__('branch.manger_phone')}}</th>
                         <th>{{__('branch.tax_number')}}</th>
+                        <th>{{__('branch.logo')}}</th>
                         <th>{{__('branch.tax_image')}}</th>
                         <th>{{__('branch.email')}}</th>
                         <th>{{__('branch.long')}}</th>
@@ -38,7 +39,10 @@
                                 <td>{{$brench->manger_phone}}</td>
                                 <td>{{$brench->tax_number}}</td>
                                 <td>
-                                    <img class="img-thumbnail w-75" src="{{asset($brench->tax_image)}}">
+                                    <img class="img-thumbnail" height="120px" src="{{asset($brench->logo)}}">
+                                </td>
+                                <td>
+                                    <img class="img-thumbnail" height="120px" src="{{asset($brench->tax_image)}}">
                                 </td>
                                 <td>{{$brench->email}}</td>
                                 <td>{{$brench->long}}</td>

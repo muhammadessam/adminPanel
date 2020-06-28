@@ -15,7 +15,7 @@ class AddStoreQuatityToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('store_quantity');
-            $table->unsignedBigInteger('store_id');
+            $table->unsignedBigInteger('store_id')->nullable();
             $table->foreign('store_id')->references('id')->on('main_stores');
         });
     }
